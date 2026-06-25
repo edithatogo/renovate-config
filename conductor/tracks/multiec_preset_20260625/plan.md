@@ -4,19 +4,19 @@
 
 ---
 
-## Phase 1: Cross-Cutting Delivery Controls
+## Phase 1: Cross-Cutting Delivery Controls [checkpoint: e0bfec4]
 
 - [x] Task: Write tests for `default.json` structure validation [abca4b9]
-    - [ ] Create a test script that loads `default.json` and asserts the presence and correctness of cross-cutting fields: `extends`, `schedule`, `dependencyDashboard`, and the `packageRules` auto-merge block.
-    - [ ] Run the test and confirm it fails (Red) — the fields do not yet exist.
+    - [x] Create a test script that loads `default.json` and asserts the presence and correctness of cross-cutting fields: `extends`, `schedule`, `dependencyDashboard`, and the `packageRules` auto-merge block.
+    - [x] Run the test and confirm it fails (Red) — the fields do not yet exist.
 - [x] Task: Add cross-cutting delivery controls to `default.json` [abca4b9]
-    - [ ] Set `schedule` to `["before 6am on Monday"]`.
-    - [ ] Set `dependencyDashboard: true`.
-    - [ ] Add a `packageRules` block for auto-merge: patch + minor auto-merge (`matchUpdateTypes`, `automerge: true`); dev-dependency exemption (`matchDepTypes`, `automerge: true`); majors remain manual (default).
-    - [ ] Add a `packageRules` block for grouping (e.g., bundle all minor/patch updates, and a TypeScript `@types/*` group).
-    - [ ] Correct the `$schema` URL to `https://docs.renovatebot.com/renovate-schema.json`.
-    - [ ] Re-run the structure test and confirm it passes (Green).
-- [ ] Task: Conductor - User Manual Verification 'Cross-Cutting Delivery Controls' (Protocol in workflow.md)
+    - [x] Set `schedule` to `["before 6am on Monday"]`.
+    - [x] Set `dependencyDashboard: true`.
+    - [x] Add a `packageRules` block for auto-merge: patch + minor auto-merge (`matchUpdateTypes`, `automerge: true`); dev-dependency exemption (`matchDepTypes`, `automerge: true`); majors remain manual (default).
+    - [x] Add a `packageRules` block for grouping (e.g., bundle all minor/patch updates, and a TypeScript `@types/*` group).
+    - [x] Correct the `$schema` URL to `https://docs.renovatebot.com/renovate-schema.json`.
+    - [x] Re-run the structure test and confirm it passes (Green).
+- [x] Task: Conductor - User Manual Verification 'Cross-Cutting Delivery Controls' (Protocol in workflow.md)
 
 ---
 
