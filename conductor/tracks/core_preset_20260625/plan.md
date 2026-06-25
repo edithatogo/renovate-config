@@ -7,7 +7,7 @@
     - [x] Implement and integrate validator task check in CI/local scripts
     - [x] Conductor - User Manual Verification 'Phase 1: Environment & Validation Setup' (Protocol in workflow.md)
 
-## Phase 2: Preset Implementation
+## Phase 2: Preset Implementation [checkpoint: abca4b9]
 
 - [x] Task: Create default.json with Core Policies [e60694b]
     - [x] Create test rules or schema requirements for default.json preset
