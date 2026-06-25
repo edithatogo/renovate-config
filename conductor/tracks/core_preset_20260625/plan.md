@@ -9,8 +9,8 @@
 
 ## Phase 2: Preset Implementation
 
-- [ ] Task: Create default.json with Core Policies
-    - [ ] Create test rules or schema requirements for default.json preset
-    - [ ] Implement default.json with config:recommended and initial category blocks (Pinning, Replacement, Blacklist)
-    - [ ] Run validation script to ensure default.json passes schema verification
+- [~] Task: Create default.json with Core Policies
+    - [x] Create test rules or schema requirements for default.json preset
+    - [x] Implement default.json with config:recommended and initial category blocks (Pinning, Replacement, Blacklist)
+    - [x] Run validation script to ensure default.json passes schema verification
     - [ ] Conductor - User Manual Verification 'Phase 2: Preset Implementation' (Protocol in workflow.md)
