@@ -1,27 +1,46 @@
 {
-  "$schema": "https://renovatebot.com",
-  "extends": [
-    "config:recommended"
-  ],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "schedule": ["before 6am on Monday"],
+  "dependencyDashboard": true,
   "packageRules": [
     {
-      "description": "Example 1: Enforce allowed versions for a preferred core library",
+      "description": "Auto-merge patch and minor updates after CI passes; majors stay manual",
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true
+    },
+    {
+      "description": "Auto-merge dev-only dependencies at any version level",
+      "matchDepTypes": ["devDependencies", "dev-dependencies", "dev"],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true
+    },
+    {
+      "description": "Group all non-major updates into a single PR",
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "all non-major"
+    },
+    {
+      "description": "Group TypeScript type definitions into a single PR",
+      "matchPackagePatterns": ["^@types/"],
+      "matchManagers": ["npm"],
+      "groupName": "typescript-types"
+    },
+    {
+      "description": "Pin React core libraries below v19",
       "matchPackageNames": ["react", "react-dom"],
       "allowedVersions": "<19.0.0"
     },
     {
-      "description": [
-        "Example 2: Automatically replace an unapproved library with a preferred standard",
-        "Our team has standardized on 'ky' over 'axios' for lightweight fetching."
-      ],
+      "description": "Replace axios with ky (lightweight fetch standard). Our team has standardized on 'ky' over 'axios' for lightweight fetching.",
       "matchPackageNames": ["axios"],
       "replacementName": "ky"
     },
     {
-      "description": [
-        "Example 3: Block updates/PRs for unauthorized or deprecated packages",
-        "Moment.js is deprecated. Use date-fns or the native Temporal API instead."
-      ],
+      "description": "Blacklist Moment.js (deprecated); use date-fns or native Temporal",
       "matchPackageNames": ["moment"],
       "enabled": false
     }
