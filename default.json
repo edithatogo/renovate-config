@@ -1,0 +1,25 @@
+{
+  "$schema": "https://renovatebot.com",
+  "extends": [
+    "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "description": "Example 1: Enforce allowed versions for a preferred core library",
+      "matchPackageNames": ["react", "react-dom"],
+      "allowedVersions": "<19.0.0"
+    },
+    {
+      "description": "Example 2: Automatically replace an unapproved library with a preferred standard",
+      "matchPackageNames": ["axios"],
+      "replacementName": "ky",
+      "comment": "Our team has standardized on 'ky' over 'axios' for lightweight fetching."
+    },
+    {
+      "description": "Example 3: Block updates/PRs for unauthorized or deprecated packages",
+      "matchPackageNames": ["moment"],
+      "enabled": false,
+      "comment": "Moment.js is deprecated. Use date-fns or the native Temporal API instead."
+    }
+  ]
+}
