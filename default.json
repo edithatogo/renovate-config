@@ -10,16 +10,20 @@
       "allowedVersions": "<19.0.0"
     },
     {
-      "description": "Example 2: Automatically replace an unapproved library with a preferred standard",
+      "description": [
+        "Example 2: Automatically replace an unapproved library with a preferred standard",
+        "Our team has standardized on 'ky' over 'axios' for lightweight fetching."
+      ],
       "matchPackageNames": ["axios"],
-      "replacementName": "ky",
-      "comment": "Our team has standardized on 'ky' over 'axios' for lightweight fetching."
+      "replacementName": "ky"
     },
     {
-      "description": "Example 3: Block updates/PRs for unauthorized or deprecated packages",
+      "description": [
+        "Example 3: Block updates/PRs for unauthorized or deprecated packages",
+        "Moment.js is deprecated. Use date-fns or the native Temporal API instead."
+      ],
       "matchPackageNames": ["moment"],
-      "enabled": false,
-      "comment": "Moment.js is deprecated. Use date-fns or the native Temporal API instead."
+      "enabled": false
     }
   ]
 }
