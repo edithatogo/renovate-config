@@ -30,19 +30,58 @@
       "groupName": "typescript-types"
     },
     {
-      "description": "Pin React core libraries below v19",
+      "description": "TypeScript: Pin React core libraries below v19",
       "matchPackageNames": ["react", "react-dom"],
+      "matchManagers": ["npm"],
       "allowedVersions": "<19.0.0"
     },
     {
-      "description": "Replace axios with ky (lightweight fetch standard). Our team has standardized on 'ky' over 'axios' for lightweight fetching.",
+      "description": "TypeScript: Replace axios with ky (lightweight fetch standard). Our team has standardized on 'ky' over 'axios' for lightweight fetching.",
       "matchPackageNames": ["axios"],
+      "matchManagers": ["npm"],
       "replacementName": "ky"
     },
     {
-      "description": "Blacklist Moment.js (deprecated); use date-fns or native Temporal",
+      "description": "TypeScript: Blacklist Moment.js (deprecated); use date-fns or native Temporal",
       "matchPackageNames": ["moment"],
+      "matchManagers": ["npm"],
       "enabled": false
+    },
+    {
+      "description": "Python: Pin requests to a safe post-hardening range (>=2.32 floor excludes pre-urllib3-fix releases)",
+      "matchPackageNames": ["requests"],
+      "matchManagers": ["pip", "poetry", "pipenv", "setup.py"],
+      "allowedVersions": ">=2.32.0,<3.0"
+    },
+    {
+      "description": "R: Replace reshape2 (Superseded on CRAN) with tidyr; migrate melt()/dcast() to pivot_longer()/pivot_wider()",
+      "matchPackageNames": ["reshape2"],
+      "matchManagers": ["cran"],
+      "replacementName": "tidyr"
+    },
+    {
+      "description": "Rust: Replace async-std (deprecated) with tokio, the maintained async runtime",
+      "matchPackageNames": ["async-std"],
+      "matchManagers": ["cargo"],
+      "replacementName": "tokio"
+    },
+    {
+      "description": "C#: Pin Newtonsoft.Json to >=13.0.1 to exclude CVE-2024-21907 (DoS in pre-13.0.1)",
+      "matchPackageNames": ["Newtonsoft.Json"],
+      "matchManagers": ["nuget"],
+      "allowedVersions": ">=13.0.1"
+    },
+    {
+      "description": "Go: Replace the deprecated github.com/golang/protobuf module with google.golang.org/protobuf",
+      "matchPackageNames": ["github.com/golang/protobuf"],
+      "matchManagers": ["gomod"],
+      "replacementName": "google.golang.org/protobuf"
+    },
+    {
+      "description": "Julia: Pin JSON.jl to v1.x (1.0 is the 2025 breaking rewrite; excludes legacy 0.21.x)",
+      "matchPackageNames": ["JSON"],
+      "matchManagers": ["julia"],
+      "allowedVersions": ">=1.0.0,<2"
     }
   ]
 }

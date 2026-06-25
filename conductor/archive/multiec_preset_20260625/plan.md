@@ -22,10 +22,10 @@
 
 ## Phase 2: Curated Ecosystem Preferred-Library Rules
 
-- [ ] Task: Extend structure tests to assert one curated rule per ecosystem
+- [x] Task: Extend structure tests to assert one curated rule per ecosystem
     - [ ] Augment the test script to assert that `packageRules` contains at least one rule matching each manager: `npm`, `pip`/`poetry`/`pipenv`, `cran`, `cargo`, `nuget`, `gomod`, `julia`.
     - [ ] Run the test and confirm it fails (Red) — only npm rules currently exist.
-- [ ] Task: Add curated preferred-library rules for all 7 ecosystems
+- [~] Task: Add curated preferred-library rules for all 7 ecosystems
     - [ ] **TypeScript (`npm`):** keep existing `react`/`react-dom` pin, `axios`→`ky` replacement, `moment` blacklist.
     - [ ] **Python (`pip`):** e.g., pin `requests` to a safe range; blacklist a deprecated package (e.g., `distro` superseded lib) or suggest `httpx` as a replacement target.
     - [ ] **R (`cran`):** e.g., pin a critical package or suggest a modern alternative to a deprecated one.
