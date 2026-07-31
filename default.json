@@ -1,29 +1,34 @@
 {
-  "$schema": "https://renovatebot.com",
-  "extends": [
-    "config:recommended"
-  ],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "dependencyDashboard": true,
+  "configMigration": true,
+  "timezone": "Australia/Sydney",
+  "schedule": ["before 6am on Monday"],
+  "prHourlyLimit": 2,
+  "prConcurrentLimit": 5,
+  "rebaseWhen": "behind-base-branch",
+  "rangeStrategy": "auto",
+  "labels": ["dependencies"],
+  "vulnerabilityAlerts": {"enabled": true},
+  "osvVulnerabilityAlerts": true,
   "packageRules": [
     {
-      "description": "Example 1: Enforce allowed versions for a preferred core library",
-      "matchPackageNames": ["react", "react-dom"],
-      "allowedVersions": "<19.0.0"
+      "description": "Automerge low-risk immutable updates after required checks",
+      "matchUpdateTypes": ["digest", "pin", "patch"],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true
     },
     {
-      "description": [
-        "Example 2: Automatically replace an unapproved library with a preferred standard",
-        "Our team has standardized on 'ky' over 'axios' for lightweight fetching."
-      ],
-      "matchPackageNames": ["axios"],
-      "replacementName": "ky"
+      "description": "Keep major updates independently reviewable",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
     },
     {
-      "description": [
-        "Example 3: Block updates/PRs for unauthorized or deprecated packages",
-        "Moment.js is deprecated. Use date-fns or the native Temporal API instead."
-      ],
-      "matchPackageNames": ["moment"],
-      "enabled": false
+      "description": "Group GitHub Actions updates",
+      "matchManagers": ["github-actions"],
+      "groupName": "github-actions"
     }
   ]
 }
