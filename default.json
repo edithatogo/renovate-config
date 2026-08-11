@@ -12,6 +12,7 @@
   "labels": ["dependencies"],
   "vulnerabilityAlerts": {"enabled": true},
   "osvVulnerabilityAlerts": true,
+  "git-submodules": {"enabled": true},
   "customManagers": [
     {
       "customType": "regex",
