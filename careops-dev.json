@@ -1,0 +1,53 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Opt-in development-first CareOps updates; exact pins, bounded batches, verified promotion.",
+  "schedule": [
+    "before 6am"
+  ],
+  "rangeStrategy": "pin",
+  "ignoreUnstable": false,
+  "respectLatest": false,
+  "minimumReleaseAge": "0 days",
+  "prHourlyLimit": 2,
+  "prConcurrentLimit": 3,
+  "automerge": false,
+  "packageRules": [
+    {
+      "description": "Require verification for every candidate, including inherited patch/digest rules",
+      "matchPackageNames": [
+        "*"
+      ],
+      "automerge": false
+    },
+    {
+      "description": "Resolve GitHub Actions to immutable commits",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "pinDigests": true,
+      "groupName": "careops action pins"
+    },
+    {
+      "description": "Make major development candidates visible without a second dashboard approval",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "dependencyDashboardApproval": false,
+      "automerge": false
+    },
+    {
+      "description": "Track maintained development tags for selected packages",
+      "matchDatasources": [
+        "npm"
+      ],
+      "matchPackageNames": [
+        "@pnp/cli-microsoft365",
+        "typescript",
+        "playwright",
+        "@playwright/test"
+      ],
+      "followTag": "next",
+      "automerge": false
+    }
+  ]
+}
